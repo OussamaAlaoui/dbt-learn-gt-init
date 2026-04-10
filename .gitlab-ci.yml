@@ -1,0 +1,18 @@
+stages:
+  - validate
+  - test
+
+before_script:
+  - pip install dbt-bigquery
+
+validate_dbt_project:
+  stage: validate
+  image: python:3.11
+  script:
+    - dbt compile --project-dir ./dbt_project
+
+run_dbt_tests:
+  stage: test
+  image: python:3.11
+  script:
+    - dbt test --project-dir ./dbt_project
