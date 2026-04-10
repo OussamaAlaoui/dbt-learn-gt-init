@@ -4,6 +4,8 @@ stages:
 
 before_script:
   - pip install dbt-bigquery
+  - echo "$GCP_SERVICE_ACCOUNT_KEY" > /tmp/gcp_key.json
+  - export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp_key.json
 
 validate_dbt_project:
   stage: validate
