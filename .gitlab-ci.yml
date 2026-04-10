@@ -11,10 +11,10 @@ validate_dbt_project:
   stage: validate
   image: python:3.11
   script:
-    - dbt compile --project-dir ./dbt_project
+    - dbt compile --project-dir dbt_project.yml
 
 run_dbt_tests:
   stage: test
   image: python:3.11
   script:
-    - dbt test --project-dir ./dbt_project
+    - dbt test --project-dir dbt_project.yml
